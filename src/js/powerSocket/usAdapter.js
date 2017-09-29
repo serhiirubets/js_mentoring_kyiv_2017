@@ -1,14 +1,16 @@
+const adaptee = 'adaptee';
+
 export default class USAdapter {
-    constructor() {
-        this.adaptee = window;
-    }
+  constructor() {
+    this.adaptee = adaptee;
+  }
 
-    getModernStandard() {
-        console.log('get some logic for US plugin');
-    }
+  getModernStandard() {
+    console.log(`get some logic for US  ${this.adaptee} plugin`);
+  }
 
-    plug(cb) {
-        this.getModernStandard();
-        cb();
-    }
+  plug(cb) {
+    this.getModernStandard();
+    cb();
+  }
 }
