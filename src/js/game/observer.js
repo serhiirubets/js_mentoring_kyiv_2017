@@ -28,6 +28,7 @@ export default class Observer {
     }
 
     observers.forEach((callback) => {
+      console.log(`${type} was dispatched`);
       callback(data);
     });
   }
