@@ -1,10 +1,10 @@
-const skiSizes = new Set([
+const skiSizes = [
   'xxs',
   'xs',
   'm',
   'l',
   'xl',
-]);
+];
 
 const defaultOptions = {
   gender: 'man',
