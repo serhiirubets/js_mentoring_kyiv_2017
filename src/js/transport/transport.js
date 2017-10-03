@@ -1,6 +1,6 @@
 export default class Transport {
-  constructor(parcel) {
-    this.package = parcel;
+  constructor(type) {
+    this.type = type;
     this.MAX_WEIGHT = 10000;
   }
   send() {

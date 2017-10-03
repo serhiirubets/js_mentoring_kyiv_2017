@@ -7,19 +7,10 @@
 // Composite pattern
 // Maybe factory ?
 
-import Car from './car';
-import Plane from './plane';
-import Ship from './ship';
+import TransportFactory from './transportFactory';
 
-const transports = {
-  car: type => new Car(type),
-  plane: type => new Plane(type),
-  ship: type => new Ship(type),
-};
-
-function getTransport(transport) {
-  return transports[transport](transport);
-}
-
-const car = getTransport('car');
+const transport = new TransportFactory();
+const car = transport.create('car');
+const ship = transport.create('ship');
 console.log(car);
+console.log(ship);
