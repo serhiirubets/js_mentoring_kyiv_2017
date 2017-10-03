@@ -4,8 +4,7 @@
 // the type of transport. As result in some place of your implementation should decide which
 // type of transport should create and use for some parcel.
 
-// Composite pattern
-// Maybe factory ?
+// Factory pattern
 
 import TransportFactory from './transportFactory';
 
