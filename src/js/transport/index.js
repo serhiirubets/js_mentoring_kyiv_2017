@@ -4,6 +4,9 @@
 // the type of transport. As result in some place of your implementation should decide which
 // type of transport should create and use for some parcel.
 
+// Composite pattern
+// Maybe factory ?
+
 import Car from './car';
 import Plane from './plane';
 import Ship from './ship';

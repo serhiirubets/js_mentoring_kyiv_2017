@@ -2,6 +2,8 @@
 // make a bet for the special game and follow the result. When this game is finished, each player
 // who was made a bet to this game will receive notification about his gain or loss
 
+// Observer pattern
+
 import Player from './player';
 
 const vasya = new Player();

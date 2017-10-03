@@ -4,6 +4,8 @@
 // all of this things in one place, only entering their own personal data (height, age, gender)
 // Some terminal box to buy or rent those things
 
+// Facade pattern
+
 import Apartment from './apartment';
 import SkiBox from './ski-box';
 import TicketBox from './ticket-box';
