@@ -9,13 +9,13 @@ export default class Player {
 
   makeBet(game, amount) {
     this.amount -= amount;
-    game.applyBet(this.complete);
+    game.applyBet(this.name, amount, this.complete);
   }
 
-  complete(amount) {
-    if (amount) {
+  complete(winner, amount) {
+    if (this.name === winner) {
       this.amount += amount;
-      console.log(`${this.name} won`);
+      console.log(`${winner} won`);
     } else {
       console.log(`${this.name} loose`);
     }

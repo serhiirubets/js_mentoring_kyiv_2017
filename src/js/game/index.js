@@ -7,7 +7,7 @@
 import Player from './player';
 import Game from './game';
 
-const poker = new Game('poker');
+const poker = new Game();
 
 const vasya = new Player('vasya');
 const dima = new Player('dima');
