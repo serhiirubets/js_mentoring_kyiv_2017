@@ -1,17 +1,23 @@
-import Observer from './observer';
-
-const observer = new Observer();
+const dafaultAmount = 1000;
 
 export default class Player {
   constructor(name) {
     this.name = name;
+    this.amount = dafaultAmount;
+    this.complete = this.complete.bind(this);
   }
 
-  subscribe(type, cb) {
-    observer.subscribe(type, cb);
+  makeBet(game, amount) {
+    this.amount -= amount;
+    game.applyBet(this.complete);
   }
 
-  dispatch(type) {
-    observer.dispatch(type);
+  complete(amount) {
+    if (amount) {
+      this.amount += amount;
+      console.log(`${this.name} won`);
+    } else {
+      console.log(`${this.name} loose`);
+    }
   }
 }

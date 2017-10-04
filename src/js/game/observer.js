@@ -20,16 +20,23 @@ export default class Observer {
     };
   }
 
-  dispatch(type, data) {
+  dispatch(type, winner) {
     const observers = this.observers[type];
 
     if (!observers) {
       throw new Error(`Observer with ${type} does not exist`);
     }
 
-    observers.forEach((callback) => {
-      console.log(`${type} was dispatched`);
-      callback(data);
+    observers.forEach((callback, index) => {
+      const amount = index === winner
+        ? 500
+        : 0;
+
+      callback(amount);
     });
+  }
+
+  getListeners() {
+    return this.observers;
   }
 }

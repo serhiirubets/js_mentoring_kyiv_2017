@@ -5,16 +5,16 @@
 // Observer pattern
 
 import Player from './player';
+import Game from './game';
 
-const vasya = new Player();
-const dima = new Player();
+const poker = new Game('poker');
 
-vasya.subscribe('poker', () => console.log('callback was called'));
-vasya.subscribe('tennis', () => console.log('callback was called'));
-dima.subscribe('football', () => console.log('callback was called'));
+const vasya = new Player('vasya');
+const dima = new Player('dima');
+const vanya = new Player('vanya');
 
-vasya.dispatch('poker');
-vasya.dispatch('poker');
-vasya.dispatch('tennis');
+vasya.makeBet(poker, 5);
+dima.makeBet(poker, 10);
+vanya.makeBet(poker, 15);
 
-dima.dispatch('football');
+poker.completeGame();
