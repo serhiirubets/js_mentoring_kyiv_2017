@@ -7,6 +7,7 @@
 // Adapter pattern
 
 import PowerSocket from './powerSocket';
+import ChinaAdapter from './chinaAdapter';
 
-const ukAdapter = new PowerSocket('uk');
-ukAdapter.plug();
+const poweSocket = new PowerSocket();
+poweSocket.connect(new ChinaAdapter());
