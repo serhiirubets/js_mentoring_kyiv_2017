@@ -1,9 +1,11 @@
+import SocketAdapter from './adapter';
+
 export default class PowerSocket {
-  constructor(adapter) {
-    this.adapter = adapter;
+  constructor(type) {
+    this.adapter = new SocketAdapter(type).socket;
   }
 
-  plug(cb) {
-    this.adapter.plug(cb);
+  plug() {
+    this.adapter.plug();
   }
 }

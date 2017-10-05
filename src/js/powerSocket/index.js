@@ -7,28 +7,6 @@
 // Adapter pattern
 
 import PowerSocket from './powerSocket';
-import ChinaAdapter from './chinaAdapter';
-import UkAdapter from './ukAdapter';
-import UsAdapter from './usAdapter';
 
-const country = 'UK';
-const cb = () => console.log('cb');
-let adapter;
-
-switch (country) {
-  case 'UK':
-    adapter = new UkAdapter();
-    break;
-
-  case 'China':
-    adapter = new ChinaAdapter();
-    break;
-
-  case 'US':
-  default:
-    adapter = new UsAdapter();
-    break;
-}
-
-const powerSocket = new PowerSocket(adapter);
-powerSocket.plug(cb);
+const ukAdapter = new PowerSocket('uk');
+ukAdapter.plug();
