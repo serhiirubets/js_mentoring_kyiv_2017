@@ -4,21 +4,33 @@
   "description": "JS mentoring Kyiv 2017",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "./node_modules/.bin/eslint ./src",
+    "test": "nyc mocha src/**/*.test.js --require ignore-styles  --require babel-core/register && ./node_modules/.bin/eslint ./src",
     "start": "webpack-dev-server --progress --profile --colors",
     "build": "webpack",
-    "lint": "./node_modules/.bin/eslint ./src"
+    "lint": "npm run lint:js && npm run lint:sass",
+    "lint:js": "linting-rules js",
+    "lint:sass": "linting-rules sass",
+    "validate": "npm ls"
   },
+  "pre-commit": [
+    "test"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "chai": "^4.1.2",
     "eslint": "^4.7.2",
     "eslint-config-airbnb-base": "^12.0.1",
     "eslint-plugin-import": "^2.7.0",
+    "ignore-styles": "^5.0.1",
+    "mocha": "^4.0.1",
+    "nyc": "^11.2.1",
+    "pre-commit": "^1.2.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
   }
