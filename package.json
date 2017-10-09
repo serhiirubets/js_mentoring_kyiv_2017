@@ -4,10 +4,10 @@
   "description": "JS mentoring Kyiv 2017",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "nyc mocha src/**/*.test.js --require ignore-styles  --require babel-core/register && ./node_modules/.bin/eslint ./src",
+    "test": "nyc mocha src/**/*.test.js --require ignore-styles  --require babel-core/register && npm run lint",
     "start": "webpack-dev-server --progress --profile --colors",
     "build": "webpack",
-    "lint": "npm run lint:js && npm run lint:sass",
+    "lint": "./node_modules/.bin/eslint ./src",
     "lint:js": "linting-rules js",
     "lint:sass": "linting-rules sass",
     "validate": "npm ls"
@@ -28,6 +28,7 @@
     "eslint": "^4.7.2",
     "eslint-config-airbnb-base": "^12.0.1",
     "eslint-plugin-import": "^2.7.0",
+    "extract-text-webpack-plugin": "^3.0.1",
     "ignore-styles": "^5.0.1",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
