@@ -1,9 +1,16 @@
+const webpack = require('webpack');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 module.exports = {
-  entry: './src/js/main.js',
+  entry: {
+    main: './src/js/main.js',
+    vendor: ['jquery', 'lodash'],
+  },
   devtool: 'eval-source-map',
   output: {
     path: __dirname,
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
   },
   module: {
     loaders: [
@@ -17,11 +24,26 @@ module.exports = {
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['env'],
-          },
         },
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+        }),
       },
     ],
   },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity,
+    }),
+
+    new BundleAnalyzerPlugin({
+
+    }),
+    new ExtractTextPlugin('styles.css'),
+  ],
 };
