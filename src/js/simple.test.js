@@ -51,4 +51,11 @@ describe('Test', () => {
       expect(calculator('2 ** 3')).to.equal(expectedResult);
     });
   });
+
+  describe('Spaces', () => {
+    it('should support any spaces', () => {
+      const expectedResult = 9;
+      expect(calculator('2     * 2     +   5')).to.equal(expectedResult);
+    });
+  });
 });
