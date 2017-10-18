@@ -8,51 +8,47 @@ describe('should run test', () => {
 });
 
 describe('Test', () => {
-  it('should be true', () => {
-    expect(test()).toBeTruthy();
-  });
-
   describe('sum', () => {
     it('should return sum of two numbers', () => {
       const expectedResult = 5;
-      expect(calculator('1 + 4')).toBe(expectedResult);
+      expect(calculator('1 + 4')).to.equal(expectedResult);
     });
 
     it('should return sum of two numbers', () => {
       const expectedResult = 15;
-      expect(calculator('12 + 3')).toBe(expectedResult);
+      expect(calculator('12 + 3')).to.equal(expectedResult);
     });
-  })
+  });
+
   describe('div', () => {
     it('should divide two numbers', () => {
       const expectedResult = 5;
-      expect(calculator('15 / 3')).toBe(expectedResult);
+      expect(calculator('15 / 3')).to.equal(expectedResult);
     });
   });
 
   describe('empty', () => {
     it('should return 0 when is empty input', () => {
       const expectedResult = 0;
-      expect(calculator('')).toBe(expectedResult);
+      expect(calculator('')).to.equal(expectedResult);
     });
 
     it('should return 0 when no arguments passed', () => {
       const expectedResult = 0;
-      expect(calculator()).toBe(expectedResult);
+      expect(calculator()).to.equal(expectedResult);
     });
   });
 
   describe('Nan', () => {
     it('should return NaN when arguments do not have number', () => {
-      const expectedResult = NaN;
-      expect(calculator('+')).toEqual(expectedResult);
+      expect(calculator('+')).to.be.NaN;
     });
   });
 
   describe('Exponent', () => {
     it('should make exponent from 2 ** 3 = 8', () => {
       const expectedResult = 8;
-      expect(calculator('2 ** 3')).toEqual(expectedResult);
+      expect(calculator('2 ** 3')).to.equal(expectedResult);
     });
   });
 });
