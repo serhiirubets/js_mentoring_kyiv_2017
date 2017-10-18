@@ -41,11 +41,7 @@ describe('Calculator', () => {
 
   describe('Exeptions', () => {
     describe('Not passed or empty argument', () => {
-      let expectedResult;
-
-      beforeEach(() => {
-        expectedResult = 0;
-      });
+      const expectedResult = 0;
 
       it('should return 0 when input is empty string', () => {
         expect(calculator('')).to.equal(expectedResult);
