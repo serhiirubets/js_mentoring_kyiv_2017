@@ -1,0 +1,28 @@
+.links__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 943px;
+  margin: auto; }
+
+.links__item {
+  margin-right: 10px;
+  color: #fff; }
+  .links__item:after {
+    content: '|';
+    display: inline-block;
+    margin-left: 20px;
+    margin-right: 15px; }
+  .links__item:last-child:after, .links__item--no-line:after {
+    display: none; }
+
+.links__link {
+  font-size: 1.3125rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none; }
+  .links__link:hover {
+    text-decoration: underline; }
+
+.links--services .links__item {
+  margin-bottom: 10px; }

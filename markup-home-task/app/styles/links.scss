@@ -1,0 +1,45 @@
+$link-color: #fff;
+
+.links {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 943px;
+    margin: auto;
+  }
+
+  &__item {
+    margin-right: 10px;
+    color: $link-color;
+
+    &:after {
+      content: '|';
+      display: inline-block;
+      margin-left: 20px;
+      margin-right: 15px;
+    }
+
+    &:last-child:after,
+    &--no-line:after {
+      display: none;
+    }
+  }
+
+  &__link {
+    font-size: (21 / 16) * 1rem;
+    color: $link-color;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &--services {
+    .links__item {
+      margin-bottom: 10px;
+    }
+  }
+}

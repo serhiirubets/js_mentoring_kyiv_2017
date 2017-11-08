@@ -1,0 +1,10 @@
+section.services.links.links--services
+  .container
+    ul.links__list
+      each item, index in ['Financial Services', 'Travel & Hospitality', 'Software & Hi-Tech', 'Retail & Distribution', 'Media & Entertainment', 'Life Sciences', 'Healthcare', 'More']
+        if index === 2
+          li.links__item.links__item--no-line
+            a.links__link(href="#")= item
+        else
+          li.links__item
+            a.links__link(href="#")= item

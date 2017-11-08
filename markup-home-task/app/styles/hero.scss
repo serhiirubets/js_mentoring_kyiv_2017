@@ -1,0 +1,13 @@
+$description-color: #343334;
+
+.hero {
+  &__wrapper {
+    text-align: center;
+    padding: 0 30px;
+  }
+
+  &__description {
+    font-size: (21 / 16) * 1rem;
+    color: $description-color;
+  }
+}
