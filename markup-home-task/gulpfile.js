@@ -7,12 +7,12 @@ const sass = require('gulp-sass');
 gulp.task('views', function() {
   return gulp.src('app/pug/index.pug')
     .pipe(pug({}))
-    .pipe(gulp.dest("."))
+    .pipe(gulp.dest('.'));
 });
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function () {
-  return gulp.src("app/styles/*.scss")
+  return gulp.src("app/styles/index.scss")
     .pipe(sass())
     .pipe(gulp.dest("."))
     .pipe(browserSync.stream());

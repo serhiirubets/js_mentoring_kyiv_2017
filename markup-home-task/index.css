@@ -476,3 +476,11 @@ img {
 .services {
   background: #343334;
   padding: 20px; }
+
+.promo {
+  display: flex;
+  flex-wrap: wrap;
+  background: #000; }
+  .promo-card__picture {
+    max-width: 765px;
+    max-width: 510px; }

@@ -1,0 +1,12 @@
+.promo {
+  display: flex;
+  flex-wrap: wrap;
+  background: #000;
+
+  &-card {
+    &__picture {
+      max-width: 765px;
+      max-width: 510px;
+    }
+  }
+}
