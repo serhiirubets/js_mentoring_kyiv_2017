@@ -478,9 +478,74 @@ img {
   padding: 20px; }
 
 .promo {
+  background: #94ccd6;
+  padding: 120px 0; }
+  .promo__container {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between; }
+  .promo-card {
+    max-width: 606px; }
+    .promo-card__picture {
+      max-height: 444px; }
+    .promo-card__description {
+      font-size: 1.625rem;
+      font-weight: bold;
+      color: #fff; }
+    .promo-card__link {
+      color: #fff;
+      font-size: 1.25rem;
+      text-decoration: none; }
+      .promo-card__link:hover {
+        text-decoration: underline; }
+
+.filter-by__wrapper {
+  padding: 70px 0;
+  background: #f7f7f7;
+  text-align: center; }
+
+.filter-by__text {
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: #343334;
+  text-transform: uppercase; }
+
+.filter-by__select {
+  margin-left: 25px;
+  box-sizing: border-box;
+  width: 365px;
+  padding: 8px;
+  padding-left: 15px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border: 1px solid #bbb;
+  font-weight: 300;
+  font-style: italic;
+  border-radius: 0; }
+
+.filter-by__label {
+  position: relative; }
+  .filter-by__label:after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #bbbbbb; }
+
+.filter-by:before {
+  content: '';
+  display: block;
+  height: 100px;
+  margin-bottom: 50px;
+  background: repeating-linear-gradient(-45deg, #ededed, #ededed 5px, white 5px, white 15px); }
+
+.clients {
   display: flex;
-  flex-wrap: wrap;
-  background: #000; }
-  .promo-card__picture {
-    max-width: 765px;
-    max-width: 510px; }
+  flex-wrap: wrap; }
+  .clients__client {
+    max-width: 400px;
+    max-height: 300px; }

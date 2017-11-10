@@ -1,12 +1,37 @@
+$promo-background-color: #94ccd6;
+$description-color: #fff;
+
 .promo {
-  display: flex;
-  flex-wrap: wrap;
-  background: #000;
+  background: $promo-background-color;
+  padding: 120px 0;
+
+  &__container {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+  }
 
   &-card {
+    max-width: 606px;
+
     &__picture {
-      max-width: 765px;
-      max-width: 510px;
+      max-height: 444px;
+    }
+
+    &__description {
+      font-size: (26 / 16) * 1rem;
+      font-weight: bold;
+      color: $description-color;
+    }
+
+    &__link {
+      color: $description-color;
+      font-size: (20 / 16) * 1rem;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }

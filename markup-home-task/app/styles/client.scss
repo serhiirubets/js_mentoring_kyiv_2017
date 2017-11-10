@@ -1,0 +1,9 @@
+.clients {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__client {
+    max-width: 400px;
+    max-height: 300px;
+  }
+}
