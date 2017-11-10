@@ -1,0 +1,11 @@
+$footer-background-color: #343334;
+.footer {
+  background: $footer-background-color;
+
+  &:before {
+    content: '';
+    height: 200px;
+    display: block;
+    background: repeating-linear-gradient(-45deg, #ededed, #ededed 5px, white 5px, white 15px);
+  }
+}
