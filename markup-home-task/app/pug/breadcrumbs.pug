@@ -1,9 +1,10 @@
 .breadcrumbs
-  ul.breadcrumbs__list
-    each item in ['Home', 'Our works']
-      li.breadcrumbs__item
-        if item === 'Our works'
-          = item
-        else
-          a.breadcrumbs__link(href="#")= item
+  .container
+    ul.breadcrumbs__list
+      each item in ['Home', 'Our works']
+        li.breadcrumbs__item
+          if item === 'Our works'
+            = item
+          else
+            a.breadcrumbs__link(href="#")= item
 

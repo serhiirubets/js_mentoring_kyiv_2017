@@ -3,6 +3,6 @@ section.clients
     each item, index in ['Project Name', 'Redesigning a Leading Innovative Platform to Unlock the Power of Collaboration', 'Project Name', 'Project Name', 'Client Name that is Long will Wrap', 'Project Name', 'Project Name', 'Client Name that is Long will Wrap', 'Project Name']
       article.client
         .client__picture
-          img(src=`img/client-${index}.jpg` alt=item)
+          img(src=`img/client-${index + 1}.jpg` alt=item)
         p.client__description=item
         a.client__link(href="#") Client

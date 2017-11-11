@@ -1,7 +1,8 @@
 $description-color: #343334;
 
 .hero {
-  padding-top: 25px;
+  margin-bottom: 138px;
+  padding-top: 35px;
 
   &__wrapper {
     text-align: center;
@@ -13,4 +14,9 @@ $description-color: #343334;
     font-size: (21 / 16) * 1rem;
     color: $description-color;
   }
+}
+
+.main-title {
+  font-size: 5rem;
+  margin-bottom: 27px;
 }
