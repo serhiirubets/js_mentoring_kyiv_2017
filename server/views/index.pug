@@ -11,11 +11,12 @@ html
       label.form__label
         input.form__field(name="price" placeholder="price" data-price)
       button(type="submit") Save to file
-    ul.list
-      each item in data
-        li.item
-          a.item__link(href='/medicals/' + item.id)
-            p.item__name=item.name
-            p.item__brand=item.brand
-            p.item__price=item.price
+    if data.length
+      ul.list
+        each item in data
+          li.item
+            a.item__link(href='/medicals/' + item.id)
+              p.item__name=item.name
+              p.item__brand=item.brand
+              p.item__price=item.price
     script(src="/script.js")

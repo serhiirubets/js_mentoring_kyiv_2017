@@ -1,3 +1,10 @@
-module.exports = (req, res) => {
-  res.send('Greeting my dear friend');
-};
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => {
+  res.render('index', { data: [] });
+});
+
+module.exports = router;
+
+

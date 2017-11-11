@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 
 const mainRoute = require('./src/routes/main');
 const medicalsRoute = require('./src/routes/medicals');
-const medicalsNewRoute = require('./src/routes/medicals-new');
 
 // создаем объект приложения
 const app = express();
@@ -17,10 +16,8 @@ app.get('/', (req, res) => {
   res.redirect('/main');
 });
 
-app.get('/main', mainRoute);
-app.get('/medicals', medicalsRoute);
-app.get('/medicals/:id', medicalsRoute);
-app.post('/medicals/new', medicalsNewRoute);
+app.use('/main', mainRoute);
+app.use('/medicals', medicalsRoute);
 
 app.listen(3000);
 

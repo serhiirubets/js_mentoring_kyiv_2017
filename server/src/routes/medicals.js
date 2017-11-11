@@ -1,32 +1,36 @@
-const csv = require('csvtojson');
-const { PATH_TO_CSV } = require('../config');
+const express = require('express');
+const router = express.Router();
+const dataService = require('../../services/data');
 
-const data = [];
-
-module.exports = (req, res) => {
-  csv()
-    .fromFile(PATH_TO_CSV)
-    .on('json', (jsonObj) => {
-      data.push(jsonObj);
+router.get('/', function (req, res) {
+  dataService.getData()
+    .then((data) => {
+      res.json(data);
     })
-    .on('done', (error) => {
-      if (error) {
-        throw error;
-      }
+});
 
-      const id = req.params.id;
+router.post('/', (req, res) => {
+  const { name, brand, price } = req.body;
 
-      if (id) {
-        console.log(id);
-        const medicalData = data.find(item => item.id === id);
+  const medical = {
+    name,
+    price,
+    brand
+  };
 
-        if (medicalData) {
-          console.log(medicalData);
-          res.render('index', { data: [medicalData] });
-        }
-      } else {
-        res.render('index', { data });
-      }
-    });
-};
+  dataService.saveData(medical)
+    .then(() => {
+      res.end('data saved');
+    })
+});
 
+router.get('/:id', (req, res) => {
+  const id = req.params.id;
+
+  dataService.getDataById(id)
+    .then((data) => {
+      res.render('index', { data: [data] });
+    })
+});
+
+module.exports = router;
