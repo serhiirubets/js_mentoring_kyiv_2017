@@ -38,6 +38,7 @@ $clients-description-alternative-color: #fff;
 
   @media (max-width: 815px) {
     width: 48%;
+    margin-bottom: 40px;
 
     &:nth-child(1n + 7) {
       .client__description,

@@ -30,6 +30,10 @@ $footer-text-color: #fff;
     height: 258px;
     display: block;
     background: repeating-linear-gradient(-45deg, #ededed, #ededed 5px, white 5px, white 15px);
+
+    @media (max-width: 670px) {
+      height: 120px;
+    }
   }
 }
 
