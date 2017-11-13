@@ -1,0 +1,3 @@
+{
+  "csvHeaders": ["id", "name", "brand", "company", "price", "isbn"]
+}

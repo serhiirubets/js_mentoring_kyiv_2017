@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "email": "serhii.rubets@gmail.com",
+  "description": "Node js learning",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Serhii Rubets",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "csvtojson": "^1.1.9",
+    "express": "^4.16.2",
+    "json2csv": "^3.11.5",
+    "pug": "^2.0.0-rc.4",
+    "shortid": "^2.2.8"
+  }
+}
