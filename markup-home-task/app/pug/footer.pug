@@ -8,9 +8,8 @@ footer.footer
             a.links__link(href="#")= item
     .socials
       ul.socials__list
-        each item in ['twitter', 'facebook', 'instagram', 'Google-plus']
+        each item in ['twitter', 'facebook', 'instagram', 'google-plus']
           li.socials__item
             a.socials__link(href="#")
-              svg
-                use(xlink:href=`img/${item}.svg#facebook-icon`)
+              i(class=`socials__icon socials__icon--${item} fa fa-${item}` aria-hidden="true")
               span.visually-hidden=item

@@ -25,7 +25,7 @@ $clients-description-alternative-color: #fff;
 }
 
 .client {
-  max-width: 405px;
+  width: 32%;
   margin-bottom: 100px;
   color: $clients-description-color;
 
@@ -36,8 +36,28 @@ $clients-description-alternative-color: #fff;
     }
   }
 
+  @media (max-width: 815px) {
+    width: 48%;
+
+    &:nth-child(1n + 7) {
+      .client__description,
+      .client__link {
+        color: $clients-description-color;
+      }
+    }
+  }
+
+  @media (max-width: 670px) {
+    text-align: center;
+    width: 100%;
+  }
+
   &__picture {
     max-height: 300px;
+  }
+
+  &__img {
+    margin: auto;
   }
 
   &__description {

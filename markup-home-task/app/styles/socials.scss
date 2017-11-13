@@ -1,0 +1,20 @@
+.socials {
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 17px;
+  }
+
+  &__icon {
+    width: 16px;
+    height: 25px;
+    color: white;
+    font-size: 22px;
+
+    &--facebook {
+      width: 14px;
+    }
+  }
+}

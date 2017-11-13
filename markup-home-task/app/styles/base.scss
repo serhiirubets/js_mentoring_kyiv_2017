@@ -1,5 +1,10 @@
 html {
   box-sizing: border-box;
+  font-size: 16px;
+
+  @media (max-width: 960px) {
+    font-size: 14px;
+  }
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -7,7 +12,6 @@ html {
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 16px;
 }
 
 .visually-hidden:not(:focus):not(:active),
@@ -29,6 +33,14 @@ input[type=radio].visually-hidden {
 .container {
   max-width: 1280px;
   margin: auto;
+
+  @media (max-width: 1300px) {
+    padding: 0 10px;
+  }
+
+  @media (max-width: 350px) {
+    padding: 0;
+  }
 }
 
 ul {

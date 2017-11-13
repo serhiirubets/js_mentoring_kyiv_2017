@@ -50,6 +50,10 @@ $link-color: #fff;
 
       &__link {
         font-size: 1.35rem;
+
+        @media (max-width: 810px) {
+          font-size: 1rem;
+        }
       }
     }
   }

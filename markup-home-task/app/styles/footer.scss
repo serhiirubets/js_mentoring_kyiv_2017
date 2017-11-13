@@ -1,5 +1,6 @@
 $footer-background-color: #343233;
 $footer-text-color: #fff;
+
 .footer {
   background: $footer-background-color;
   color: $footer-text-color;
@@ -7,6 +8,12 @@ $footer-text-color: #fff;
   &__container {
     display: flex;
     padding-top: 31px;
+    padding-bottom: 31px;
+    justify-content: space-between;
+
+    .services {
+      padding: 0;
+    }
   }
 
   &:before {

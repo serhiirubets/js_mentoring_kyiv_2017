@@ -12,7 +12,14 @@ $description-color: #fff;
   }
 
   &-card {
-    max-width: 606px;
+    max-width: 48%;
+
+    @media (max-width: 670px) {
+      text-align: center;
+      width: 100%;
+      max-width: inherit;
+      margin-bottom: 20px;
+    }
 
     &__picture {
       margin-bottom: 45px;
