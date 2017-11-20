@@ -1,0 +1,29 @@
+.header {
+  padding: 22px 0;
+  background: #343334;
+
+  .container--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 830px) {
+      flex-direction: column;
+
+      .links__item {
+        margin-bottom: 10px;
+
+        &:after {
+          margin-left: 12px;
+          margin-right: 6;
+        }
+      }
+    }
+  }
+}
+
+.logo {
+  @media (max-width: 830px) {
+    margin-bottom: 15px;
+  }
+}

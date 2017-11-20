@@ -1,0 +1,41 @@
+$breadcrumbs-link-color: #343334;
+.breadcrumbs {
+  margin-bottom: 107px;
+
+  @media (max-width: 810px) {
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    display: flex;
+    font-weight: 300;
+  }
+
+  &__item {
+    margin-right: 10px;
+
+    &:after {
+      content: '>';
+      display: inline-block;
+      margin-left: 10px;
+    }
+
+
+    &:last-child {
+      margin-right: 0;
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $breadcrumbs-link-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

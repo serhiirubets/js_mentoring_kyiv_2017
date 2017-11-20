@@ -1,0 +1,9 @@
+header.header
+  .container.container--header
+    .logo
+      img(src="img/logo.png" alt="logo")
+    nav.links
+      ul.links__list
+        each item in ['What we do', 'How we do', 'Our work', 'Insights', 'About', 'Careers']
+          li.links__item
+            a.links__link(href="#")= item

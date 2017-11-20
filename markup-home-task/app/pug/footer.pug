@@ -1,0 +1,15 @@
+footer.footer
+  .container.footer__container
+    .copyright &copy; EPAM Systems, Inc. All Rights Reserved.
+    .services
+      ul.links__list
+        each item in ['Investors', 'Newsroom', 'Contact']
+          li.links__item
+            a.links__link(href="#")= item
+    .socials
+      ul.socials__list
+        each item in ['twitter', 'facebook', 'instagram', 'google-plus']
+          li.socials__item
+            a.socials__link(href="#")
+              i(class=`socials__icon socials__icon--${item} fa fa-${item}` aria-hidden="true")
+              span.visually-hidden=item
