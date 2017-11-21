@@ -1,0 +1,6 @@
+<h2>Participants</h2>
+<ul class="participants">
+  <li *ngFor="let participant of participants">
+    <p><a [routerLink]="['participant', participant.id]">{{participant.name}}</a></p>
+  </li>
+</ul>

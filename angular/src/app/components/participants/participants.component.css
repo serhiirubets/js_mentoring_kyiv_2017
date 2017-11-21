@@ -1,0 +1,24 @@
+.participants {
+  list-style-type: none;
+  width: 400px;
+  padding: 10px;
+}
+
+.participants li {
+  border: 1px solid grey;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.participants li:hover {
+  background: #94ccd6;
+  cursor: pointer;
+}
+.participants a {
+  display: block;
+  color: black;
+}
+
+.participants p {
+  margin: 0;
+}

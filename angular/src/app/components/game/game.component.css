@@ -1,0 +1,48 @@
+.game-wrapper {
+  display: flex;
+  width: 1000px;
+  margin: auto;
+}
+
+.game-fields {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  padding: 0;
+}
+
+.game-fields li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  height: 40px;
+  border: 1px solid gray;
+  margin: 5px;
+}
+
+.game-fields li:hover {
+  background: rgba(148, 204, 214, 0.24);
+  cursor: pointer;
+}
+
+.selected {
+  background: #94ccd6;
+}
+
+.add-button {
+  padding: 15px;
+  margin: 30px auto auto;
+  text-align: center;
+  display: block;
+  width: 180px;
+  border: 1px solid #94ccd6;
+  background: #a2bdff;
+  color: #fff;
+  text-decoration: none;
+}
+
+.add-button:hover {
+  background: #79b6ff;
+}

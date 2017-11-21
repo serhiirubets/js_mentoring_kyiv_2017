@@ -1,0 +1,12 @@
+<article class="participant">
+  <h2>Name: {{participant.name}}</h2>
+  <p>Age: {{participant.age}}</p>
+  <p>Balance: {{participant.balance}}</p>
+
+  <div>
+    <div><button (click)="edit()">Edit</button></div>
+    <input #input type="text">
+    <button (click)="placeBet(input.value)">Place a bet</button>
+  </div>
+  <a routerLink="/">Back to Game</a>
+</article>

@@ -1,0 +1,15 @@
+.participant-form {
+  width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+.participant-form label,
+.participant-form input {
+  display: block;
+}
+
+.participant-form input {
+  width: 500px;
+  margin: 15px auto;
+  padding: 10px;
+}
