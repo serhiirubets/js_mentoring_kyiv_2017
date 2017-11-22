@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { ParticipantsService } from "../../services/participants.service";
 
+interface Participant {
+  id: string,
+}
+
 @Component({
   selector: 'app-participant-form',
   templateUrl: './participant-form.component.html',
@@ -15,7 +19,7 @@ export class ParticipantFormComponent implements OnInit {
     private route: ActivatedRoute,
     private participantsService: ParticipantsService
   ) {
-    this.route.params.subscribe(params => this.participantId = params.id );
+    this.route.params.subscribe(params => this.participantId = params.id);
   }
 
   ngOnInit() {
@@ -27,9 +31,9 @@ export class ParticipantFormComponent implements OnInit {
     e.preventDefault();
 
     if (this.participantId) {
-      participant = this.participantsService.getParticipants().find(participant => participant.id === this.participantId);
+      participant = this.participantsService.getParticipants().find((participant: Participant) => participant.id === this.participantId);
     } else {
-      participant = {name: 'name'};
+      participant = {name: 'name', age: 42, bet: [1, 2, 4]};
     }
 
     this.participantsService.add(participant);

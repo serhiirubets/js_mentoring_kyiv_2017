@@ -1,23 +1,33 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import {Router} from '@angular/router';
+
+import { add } from '../actions/participants';
+
+interface AppState {
+  participants: Array<object>,
+  game: Array<number>
+}
 
 @Injectable()
 export class ParticipantsService {
   participants: Array<object>;
 
-  constructor() {
-    this.participants = [
-      {name: 'First Name', age: 37, balance: 500, id: 23},
-      {name: 'Second Name', age: 27, balance: 400, id: 56},
-      {name: 'Third Name', age: 57, balance: 200, id: 85},
-      {name: 'Fourth Name', age: 33, balance: 100, id: 785}
-    ];
-  }
+  constructor(
+    private store: Store<AppState>,
+    private router: Router
+  ) {}
 
   getParticipants(): Array<object> {
+    this.store.select('participants').subscribe((items) => {
+      this.participants = items;
+    });
+
     return this.participants;
   }
 
-  add(participant) {
-    this.participants.push(participant);
+  add(participant: Object) {
+    this.store.dispatch(add(participant));
+    this.router.navigateByUrl('/');
   }
 }

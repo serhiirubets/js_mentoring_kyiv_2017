@@ -13,6 +13,7 @@ import { ParticipantsService } from './services/participants.service';
 
 import reducers from './reducers';
 import { ParticipantFormComponent } from './components/participant-form/participant-form.component';
+import { BoardComponent } from './components/board/board.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,11 @@ import { ParticipantFormComponent } from './components/participant-form/particip
     ParticipantsComponent,
     ParticipantComponent,
     ParticipantFormComponent,
+    BoardComponent,
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(reducers, {}),
+    StoreModule.forRoot(reducers),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

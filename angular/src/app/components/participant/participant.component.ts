@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ParticipantsService } from "../../services/participants.service";
 import { ActivatedRoute } from "@angular/router";
 
+interface Participant {
+  id: string,
+}
+
 @Component({
   selector: 'app-participant',
   templateUrl: './participant.component.html',
@@ -19,7 +23,7 @@ export class ParticipantComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.participant = this.participantsService.getParticipants().find(item => item.id == this.participantId);
+    this.participant = this.participantsService.getParticipants().find((item: Participant)=> item.id == this.participantId);
   }
 
   edit() {

@@ -1,8 +1,7 @@
-import { combineReducers } from '@ngrx/store';
-import gameReducer from './game';
+import game from './game';
 import participants from './participants';
 
-export default combineReducers({
-  gameReducer,
+export default {
+  game,
   participants
-})
+};

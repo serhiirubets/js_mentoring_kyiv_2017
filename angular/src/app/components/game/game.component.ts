@@ -7,19 +7,9 @@ import { getRandomNumber } from '../../helpers';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
-  fieldsCount: Array<number>;
-  selected: Array<number>;
   randomFieldsResult: Array<number>;
 
   constructor() { }
-
-  private generateFields() {
-    this.fieldsCount = [];
-
-    for (let i = 1; i <= 9; i++) {
-      this.fieldsCount.push(i);
-    }
-  }
 
   private generateRandomFieldsResult() {
     this.randomFieldsResult = [];
@@ -34,15 +24,8 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.generateFields();
-    this.selected = [];
   }
 
-  select(i) {
-    if (this.selected.length < 3) {
-      this.selected.push(i);
-    }
-  }
 
   start() {
     this.generateRandomFieldsResult();

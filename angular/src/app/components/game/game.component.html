@@ -1,12 +1,5 @@
 <div class="game-wrapper">
-  <div class="game">
-    <h2>Board</h2>
-    <ul class="game-fields">
-      <li *ngFor="let i of fieldsCount" (click)="select(i)" [ngClass]="{'selected': selected.includes(i)}">{{i}}</li>
-    </ul>
-    <button (click)="start()">Start</button>
-  </div>
-
+  <app-board></app-board>
   <app-participants></app-participants>
 </div>
 

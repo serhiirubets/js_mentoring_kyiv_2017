@@ -12,6 +12,10 @@ const appRoutes: Routes = [
     path: 'add',
     component: ParticipantFormComponent,
   },
+  {
+    path: 'edit/:id',
+    component: ParticipantFormComponent,
+  },
   { path: '',
     component: GameComponent,
     pathMatch: 'full'
