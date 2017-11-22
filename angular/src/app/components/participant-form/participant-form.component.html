@@ -1,17 +1,17 @@
 <article class="participant-form">
   <h2>Participant</h2>
-  <form action="">
+  <form action="" [formGroup]="heroForm" novalidate>
     <label>
       Name
-      <input type="text" value="{{participant.name}}">
+      <input type="text" formControlName="name">
     </label>
     <label>
       Age
-      <input type="text" value="{{participant.age}}">
+      <input type="text" formControlName="age">
     </label>
     <label>
       Bet
-      <input type="text" value="{{participant.bet}}">
+      <input type="text" formControlName="bet">
     </label>
 
     <button type="submit" (click)="save($event)">Save</button>

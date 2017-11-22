@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ParticipantsService } from "../../services/participants.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 interface Participant {
   id: string,
@@ -17,7 +17,8 @@ export class ParticipantComponent implements OnInit {
 
   constructor(
     private participantsService: ParticipantsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.route.params.subscribe( params => this.participantId = params.id );
   }
@@ -26,8 +27,8 @@ export class ParticipantComponent implements OnInit {
     this.participant = this.participantsService.getParticipants().find((item: Participant)=> item.id == this.participantId);
   }
 
-  edit() {
-
+  edit(id: string) {
+    this.router.navigateByUrl(`/edit/${id}`);
   }
 
   placeBet(value) {

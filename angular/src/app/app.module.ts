@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { RouterModule } from '@angular/router';
 import appRoutes from './config/routes';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { BoardComponent } from './components/board/board.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(reducers),
     RouterModule.forRoot(
       appRoutes,

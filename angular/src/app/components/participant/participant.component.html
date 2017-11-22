@@ -4,7 +4,7 @@
   <p>Balance: {{participant.balance}}</p>
 
   <div>
-    <div><button (click)="edit()">Edit</button></div>
+    <div><button (click)="edit(participant.id)">Edit</button></div>
     <input #input type="text">
     <button (click)="placeBet(input.value)">Place a bet</button>
   </div>

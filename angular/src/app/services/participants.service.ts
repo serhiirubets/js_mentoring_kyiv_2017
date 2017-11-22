@@ -9,21 +9,41 @@ interface AppState {
   game: Array<number>
 }
 
+interface Participant {
+  id: string,
+  name: string,
+  age: number,
+  bet: Array<number>
+}
+
+interface Predicate {
+  id: string
+}
+
 @Injectable()
 export class ParticipantsService {
-  participants: Array<object>;
+  participants: Array<Participant>;
+  participant: Object;
 
   constructor(
     private store: Store<AppState>,
     private router: Router
   ) {}
 
-  getParticipants(): Array<object> {
-    this.store.select('participants').subscribe((items) => {
+  getParticipants(): Array<Participant> {
+    this.store.select('participants').subscribe((items: Array<Participant>) => {
       this.participants = items;
     });
 
     return this.participants;
+  }
+
+  getParticipant(id: string): Participant {
+    if (!this.participants) {
+      this.getParticipants();
+    }
+
+    return this.participants.find((participant: Predicate) => participant.id == id)
   }
 
   add(participant: Object) {
