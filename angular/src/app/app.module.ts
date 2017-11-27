@@ -11,6 +11,7 @@ import { GameComponent } from './components/game/game.component';
 import { ParticipantsComponent } from './components/participants/participants.component';
 import { ParticipantComponent } from './components/participant/participant.component';
 import { ParticipantsService } from './services/participants.service';
+import { BoardService } from "./services/board.service";
 
 import reducers from './reducers';
 import { ParticipantFormComponent } from './components/participant-form/participant-form.component';
@@ -34,7 +35,7 @@ import { BoardComponent } from './components/board/board.component';
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [ParticipantsService],
+  providers: [ParticipantsService, BoardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

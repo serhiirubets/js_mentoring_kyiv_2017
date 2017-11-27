@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 import { add } from '../actions/participants';
 
 interface AppState {
   participants: Array<object>,
-  game: Array<number>
+  game: Array<number>,
+  board: Array<Array<number>>
 }
 
 interface Participant {

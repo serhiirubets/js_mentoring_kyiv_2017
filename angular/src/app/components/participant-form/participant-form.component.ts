@@ -52,14 +52,16 @@ export class ParticipantFormComponent implements OnInit {
   }
 
   save(e) {
-    let participant;
+    let participant: Participant = {id: String(Date.now()), name: null, age: null, bet: null};
     e.preventDefault();
 
-    if (this.participantId) {
-      participant = this.participantsService.getParticipants().find((participant: Participant) => participant.id === this.participantId);
-    } else {
-      participant = {name: 'name', age: 42, bet: [1, 2, 4]};
-    }
+    participant.id = this.participantId
+      ? this.participantId
+      : String(Date.now());
+
+    participant.name = this.heroForm.value.name;
+    participant.age = this.heroForm.value.age;
+    participant.bet = this.heroForm.value.bet.split('');
 
     this.participantsService.add(participant);
   }

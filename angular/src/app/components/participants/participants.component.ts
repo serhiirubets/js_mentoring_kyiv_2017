@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ParticipantsService} from "../../services/participants.service";
+import { ParticipantsService } from "../../services/participants.service";
 
 @Component({
   selector: 'app-participants',

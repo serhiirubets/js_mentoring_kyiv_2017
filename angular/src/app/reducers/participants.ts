@@ -6,16 +6,18 @@ import {
 } from '../actions/participants';
 
 const initialState = [
-  {name: 'First Name', age: 37, balance: 500, id: 23},
-  {name: 'Second Name', age: 27, balance: 400, id: 56},
-  {name: 'Third Name', age: 57, balance: 200, id: 85},
-  {name: 'Fourth Name', age: 33, balance: 100, id: 785}
+  {name: 'First Name', age: 37, bet: 500, id: 23},
+  {name: 'Second Name', age: 27, bet: 400, id: 56},
+  {name: 'Third Name', age: 57, bet: 200, id: 85},
+  {name: 'Fourth Name', age: 33, bet: 100, id: 785}
 ];
 
 export default (state = initialState, action) => {
   if (action.type === PARTICIPANT_ADD) {
+    const newState = state.filter(participant => participant.id != action.payload.id);
+
     return [
-      ...state,
+      ...newState,
       action.payload
     ]
   }
