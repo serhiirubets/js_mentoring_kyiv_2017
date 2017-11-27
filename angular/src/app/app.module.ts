@@ -29,7 +29,16 @@ import { BoardComponent } from './components/board/board.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, {
+      initialState: {
+        participants: [
+          {name: 'First Name', age: 37, bet: 500, id: 23},
+          {name: 'Second Name', age: 27, bet: 400, id: 56},
+          {name: 'Third Name', age: 57, bet: 200, id: 85},
+          {name: 'Fourth Name', age: 33, bet: 100, id: 785}
+        ]
+      }
+    }),
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

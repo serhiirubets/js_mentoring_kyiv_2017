@@ -24,6 +24,7 @@ interface Form {
 })
 export class ParticipantFormComponent implements OnInit {
   participantId: string;
+  parentParticipantId: string;
   participant: Participant;
   heroForm: FormGroup;
 
@@ -32,6 +33,7 @@ export class ParticipantFormComponent implements OnInit {
     private participantsService: ParticipantsService,
     private fb: FormBuilder
   ) {
+    this.route.parent.params.subscribe(params => this.parentParticipantId = params.id);
     this.route.params.subscribe(params => this.participantId = params.id);
   }
 
@@ -55,13 +57,13 @@ export class ParticipantFormComponent implements OnInit {
     let participant: Participant = {id: String(Date.now()), name: null, age: null, bet: null};
     e.preventDefault();
 
-    participant.id = this.participantId
+    participant.id = this.parentParticipantId || this.participantId
       ? this.participantId
       : String(Date.now());
 
     participant.name = this.heroForm.value.name;
     participant.age = this.heroForm.value.age;
-    participant.bet = this.heroForm.value.bet.split('');
+    participant.bet = this.heroForm.value.bet;
 
     this.participantsService.add(participant);
   }

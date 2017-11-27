@@ -7,6 +7,12 @@ const appRoutes: Routes = [
   {
     path: 'participant/:id',
     component: ParticipantComponent,
+    children: [
+      {
+        path: 'edit',
+        component: ParticipantFormComponent
+      }
+    ]
   },
   {
     path: 'add',
