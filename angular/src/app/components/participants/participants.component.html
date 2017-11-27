@@ -1,6 +1,6 @@
 <h2>Participants</h2>
 <ul class="participants">
   <li *ngFor="let participant of participants">
-    <p><a [routerLink]="['participant', participant.id]">{{participant.name}}</a></p>
+    <p><a [routerLink]="['participant', participant.id]">{{participant.name | limitTo: 5}}</a></p>
   </li>
 </ul>

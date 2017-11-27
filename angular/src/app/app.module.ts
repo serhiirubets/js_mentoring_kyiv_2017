@@ -17,6 +17,8 @@ import reducers from './reducers';
 import { ParticipantFormComponent } from './components/participant-form/participant-form.component';
 import { BoardComponent } from './components/board/board.component';
 
+import { LimitToPipe } from './pipes/limit-to';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,13 +27,14 @@ import { BoardComponent } from './components/board/board.component';
     ParticipantComponent,
     ParticipantFormComponent,
     BoardComponent,
+    LimitToPipe
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, {
       initialState: {
-        participants: JSON.parse(localStorage.getItem('participants')),
+        participants: JSON.parse(localStorage.getItem('participants')) || [],
       }
     }),
     RouterModule.forRoot(
