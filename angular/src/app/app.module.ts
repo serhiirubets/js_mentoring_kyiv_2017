@@ -18,6 +18,8 @@ import { ParticipantFormComponent } from './components/participant-form/particip
 import { BoardComponent } from './components/board/board.component';
 
 import { LimitToPipe } from './pipes/limit-to';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from "./services/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { LimitToPipe } from './pipes/limit-to';
     ParticipantComponent,
     ParticipantFormComponent,
     BoardComponent,
-    LimitToPipe
+    LimitToPipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,7 @@ import { LimitToPipe } from './pipes/limit-to';
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [ParticipantsService, BoardService],
+  providers: [ParticipantsService, BoardService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

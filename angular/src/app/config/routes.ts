@@ -2,6 +2,9 @@ import { Routes } from '@angular/router';
 import { GameComponent } from '../components/game/game.component';
 import { ParticipantComponent } from '../components/participant/participant.component';
 import {ParticipantFormComponent} from "../components/participant-form/participant-form.component";
+import { LoginComponent } from "../components/login/login.component";
+
+import { AuthGuard } from "../services/auth-guard.service";
 
 const appRoutes: Routes = [
   {
@@ -25,6 +28,10 @@ const appRoutes: Routes = [
   { path: '',
     component: GameComponent,
     pathMatch: 'full'
+  },
+  { path: 'login',
+    component: LoginComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
