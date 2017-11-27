@@ -31,6 +31,14 @@ export class ParticipantsService {
     private router: Router
   ) {}
 
+  private saveToLocalStorage(items) {
+    localStorage.setItem('participants', JSON.stringify(items));
+  }
+
+  restore() {
+    return JSON.parse(localStorage.getItem('participants'));
+  }
+
   getParticipants(): Array<Participant> {
     this.store.select('participants').subscribe((items: Array<Participant>) => {
       this.participants = items;
@@ -49,6 +57,7 @@ export class ParticipantsService {
 
   add(participant: Object) {
     this.store.dispatch(add(participant));
+    this.store.select('participants').subscribe(this.saveToLocalStorage);
     this.router.navigateByUrl('/');
   }
 }
