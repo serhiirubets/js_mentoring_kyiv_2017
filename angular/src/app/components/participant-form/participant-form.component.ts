@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { ParticipantsService } from "../../services/participants.service";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FirstUpperLetterValidator } from "../../validators/firstUpperLetter";
 
 
 interface Participant {
@@ -27,6 +28,7 @@ export class ParticipantFormComponent implements OnInit {
   parentParticipantId: string;
   participant: Participant;
   heroForm: FormGroup;
+  nameErrorText: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -39,7 +41,7 @@ export class ParticipantFormComponent implements OnInit {
 
   private createForm(data: Form) {
     this.heroForm = this.fb.group({
-      name: [data.name, Validators.required],
+      name: [data.name, FirstUpperLetterValidator()],
       age: [data.age, Validators.required],
       bet: [data.bet, Validators.required]
     });
@@ -56,6 +58,14 @@ export class ParticipantFormComponent implements OnInit {
   save(e) {
     let participant: Participant = {id: String(Date.now()), name: null, age: null, bet: null};
     e.preventDefault();
+
+    this.nameErrorText = this.heroForm.get('name').errors
+      ? this.heroForm.get('name').errors.error
+      : '';
+
+    if (this.nameErrorText) {
+      return;
+    }
 
     participant.id = this.parentParticipantId || this.participantId
       ? this.participantId
