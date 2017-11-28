@@ -26,5 +26,9 @@ export default (state, action) => {
     ]
   }
 
+  if (action.type === PARTICIPANT_REMOVE) {
+    return state.filter(participant => participant.id != action.payload)
+  }
+
   return state;
 }

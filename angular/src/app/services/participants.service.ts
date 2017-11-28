@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 
-import { add } from '../actions/participants';
+import { add, remove } from '../actions/participants';
 
 interface AppState {
   participants: Array<object>,
@@ -59,5 +59,14 @@ export class ParticipantsService {
     this.store.dispatch(add(participant));
     this.store.select('participants').subscribe(this.saveToLocalStorage);
     this.router.navigateByUrl('/');
+  }
+
+  remove(id, cb) {
+    this.store.dispatch(remove(id));
+    this.store.select('participants').subscribe((data) => {
+      this.saveToLocalStorage(data);
+      debugger
+      cb(data);
+    });
   }
 }

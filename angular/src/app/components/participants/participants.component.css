@@ -22,3 +22,17 @@
 .participants p {
   margin: 0;
 }
+
+.participant {
+  display: flex;
+  justify-content: space-between;
+}
+
+.remove-btn {
+  border: 0;
+  width: 20%;
+}
+
+.participant-link {
+  width: 75%;
+}

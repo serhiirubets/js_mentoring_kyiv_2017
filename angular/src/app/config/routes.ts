@@ -39,4 +39,4 @@ const appRoutes: Routes = [
   }
 ];
 
-export default appRoutes;
+export { appRoutes };
