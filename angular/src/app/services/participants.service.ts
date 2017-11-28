@@ -65,7 +65,6 @@ export class ParticipantsService {
     this.store.dispatch(remove(id));
     this.store.select('participants').subscribe((data) => {
       this.saveToLocalStorage(data);
-      debugger
       cb(data);
     });
   }

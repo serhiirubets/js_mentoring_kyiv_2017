@@ -3,7 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { ParticipantsService } from "../../services/participants.service";
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FirstUpperLetterValidator } from "../../validators/firstUpperLetter";
-
+import { ChangeDetectionStrategy } from '@angular/core';
 
 interface Participant {
   id: string,
@@ -21,7 +21,8 @@ interface Form {
 @Component({
   selector: 'app-participant-form',
   templateUrl: './participant-form.component.html',
-  styleUrls: ['./participant-form.component.css']
+  styleUrls: ['./participant-form.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ParticipantFormComponent implements OnInit {
   participantId: string;

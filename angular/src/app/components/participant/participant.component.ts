@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ParticipantsService } from "../../services/participants.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ChangeDetectionStrategy } from '@angular/core';
 
 interface Participant {
   id: string,
@@ -9,7 +10,8 @@ interface Participant {
 @Component({
   selector: 'app-participant',
   templateUrl: './participant.component.html',
-  styleUrls: ['./participant.component.css']
+  styleUrls: ['./participant.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ParticipantComponent implements OnInit {
   participantId: string;
