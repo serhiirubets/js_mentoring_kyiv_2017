@@ -38,6 +38,10 @@ import { AuthGuard } from "./services/auth-guard.service";
     StoreModule.forRoot(reducers, {
       initialState: {
         participants: JSON.parse(localStorage.getItem('participants')) || [],
+        board: {
+          fields: [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+          winnerScores: []
+        }
       }
     }),
     RouterModule.forRoot(

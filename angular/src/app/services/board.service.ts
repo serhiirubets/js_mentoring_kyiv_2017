@@ -1,35 +1,44 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import {generateResult} from '../actions/board';
+import { generateBoardData, generateWinnerScores } from '../actions/board';
 
 interface AppState {
   participants: Array<object>,
   game: Array<number>,
-  board: Array<Array<number>>
+  board: {
+    winnerScores: Array<number>,
+    fields: Array<Array<number>>
+  }
+}
+
+interface Board {
+  fields: Array<Array<number>>,
+  winnerScores: Array<number>,
 }
 
 @Injectable()
 export class BoardService {
-  resultScores: Array<Array<number>>;
+  boardFields: Array<Array<number>>;
+  winnerScores: Array<number>;
 
   constructor(private store: Store<AppState>) {}
 
-  generateResultScores() {
-    const randomArray = this.generateRandomArrayWithUniqueNumbers(9, 0);
+  generateWinnerBoard() {
+    const randomArray = this.generateRandomArrayWithUniqueNumbers(9, 9);
 
     const firstRow = randomArray.slice(0, 3);
     const secondRow = randomArray.slice(3, 6);
     const thirdRow = randomArray.slice(6);
 
-    this.store.dispatch(generateResult([firstRow, secondRow, thirdRow]));
+    this.store.dispatch(generateBoardData([firstRow, secondRow, thirdRow]));
   }
 
-  getResultScores(): Array<Array<number>> {
-    this.store.select('board').subscribe((scores: Array<Array<number>>) => {
-      this.resultScores = scores;
+  getBoardFields(): Array<Array<number>> {
+    this.store.select('board').subscribe((board: Board) => {
+      this.boardFields = board.fields;
     });
 
-    return this.resultScores;
+    return this.boardFields;
   }
 
   private generateRandomArrayWithUniqueNumbers(length: number, maxNumber: number): Array<number> {
@@ -42,5 +51,21 @@ export class BoardService {
     }
 
     return arr;
+  }
+
+  generateWinnerScores() {
+    const results = this.generateRandomArrayWithUniqueNumbers(3, 9);
+
+    this.store.dispatch(generateWinnerScores(results));
+  }
+
+  getWinnerScores() {
+    this.generateWinnerScores();
+
+    this.store.select('board').subscribe((board: Board) => {
+      this.winnerScores = board.winnerScores;
+    });
+
+    return this.winnerScores;
   }
 }

@@ -1,11 +1,11 @@
 <div class="board">
   <h2>Board</h2>
   <table class="board-fields">
-    <tr *ngFor="let i of randomFieldsResult">
-      <td *ngFor="let j of i">{{j}}</td>
+    <tr *ngFor="let i of boardFields">
+      <td *ngFor="let j of i" [ngClass]="{'winner': winnerScores.includes(j)}">{{j}}</td>
     </tr>
   </table>
 
-  <button (click)="start()" *ngIf="!participantId">Start</button>
+  <button (click)="startGame()">Start</button>
 </div>
 

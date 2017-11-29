@@ -1,9 +1,15 @@
-const BOARD_GENERATE_RESULT = 'BOARD_GENERATE_RESULT';
+const BOARD_GENERATE_DATA = 'BOARD_GENERATE_DATA';
+const BOARD_GENERATE_WINNER_SCORES = 'BOARD_GENERATE_WINNER_SCORES';
 
-const generateResult = (data) => ({
-  type: BOARD_GENERATE_RESULT,
+const generateBoardData = (data) => ({
+  type: BOARD_GENERATE_DATA,
   payload: data
 });
 
-export { BOARD_GENERATE_RESULT };
-export { generateResult }
+const generateWinnerScores = (data) => ({
+  type: BOARD_GENERATE_WINNER_SCORES,
+  payload: data
+});
+
+export { BOARD_GENERATE_DATA, BOARD_GENERATE_WINNER_SCORES };
+export { generateBoardData, generateWinnerScores }
