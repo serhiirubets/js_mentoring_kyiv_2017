@@ -1,0 +1,15 @@
+.field-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+input {
+  flex-grow: 1;
+}
+
+h1 {
+  text-align: center;
+  color: black;
+}

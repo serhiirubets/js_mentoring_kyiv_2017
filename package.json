@@ -12,9 +12,6 @@
     "lint:sass": "linting-rules sass",
     "validate": "npm ls"
   },
-  "pre-commit": [
-    "test"
-  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
