@@ -6,7 +6,7 @@ import { getKeepById } from '../../actions';
 function mapStateToProps(state, props) {
   console.log(props);
   return {
-    keeps: state.keeps
+    keep: state.keep
   };
 }
 
@@ -15,6 +15,9 @@ function mapDispatchToProps(dispatch) {
     add(payload) {
       // dispatch(addKeep(payload));
     },
+    getKeepById(id) {
+      dispatch(getKeepById(id))
+    }
   };
 }
 
@@ -26,10 +29,15 @@ export default class KeepDetails extends Component {
 
   };
 
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    this.props.getKeepById(id);
+  }
+
   render() {
     return (
       <article>
-        <h1>hi</h1>
+        <h1>{this.props.keep.title}</h1>
       </article>
     );
   }

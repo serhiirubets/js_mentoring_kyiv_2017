@@ -7,6 +7,15 @@ export const REMOVE_KEEP = 'REMOVE_KEEP';
 export const SUCCESS_RECEIVE_KEEP = 'SUCCESS_RECEIVE_KEEP';
 export const RECEIVE_ALL_KEEPS = 'RECEIVE_ALL_KEEPS';
 
+export const RECEIVE_KEEP_BY_ID = 'RECEIVE_KEEP_BY_ID';
+
+const receiveKeepById = (payload) => {
+  return {
+    type: RECEIVE_KEEP_BY_ID,
+    payload
+  }
+};
+
 export const addKeep = (payload) => {
   return {
     type: ADD_KEEP,
@@ -79,7 +88,7 @@ export const getKeepById = id => (dispatch) => {
 
   return fetch(registerUrl, options)
     .then(response => response.json())
-    .then(response => dispatch(recieveKeepSuccess(response)))
-    .catch(error => dispatch(recieveKeepSuccess(error)));
+    .then(response => dispatch(receiveKeepById(response)))
+    .catch(error => dispatch(receiveKeepById(error)));
 };
 

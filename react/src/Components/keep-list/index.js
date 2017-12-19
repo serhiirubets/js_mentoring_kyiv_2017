@@ -48,7 +48,7 @@ export default class KeepList extends Component {
               title={item.title}
               text={item.text}
               remove={this.props.remove}
-              id={item.id}
+              id={item._id}
             />
           ))
         }

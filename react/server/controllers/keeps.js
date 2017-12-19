@@ -10,7 +10,12 @@ exports.getAllKeeps = (req, res) => {
 };
 
 exports.getKeepById = (req, res) => {
-  res.send('works')
+  const { id } = req.params;
+
+  Keep.findById(id)
+    .then(response => {
+      res.json({id: response._id, title: response.title})
+    });
 };
 
 exports.createKeep = (req, res) => {
