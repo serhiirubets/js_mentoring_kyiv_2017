@@ -1,0 +1,29 @@
+.board-fields {
+  width: 400px;
+  text-align: center;
+}
+
+.board-fields td {
+  width: 30%;
+  height: 40px;
+  border: 1px solid gray;
+  margin: 5px;
+}
+
+.board-fields td:hover {
+  background: rgba(148, 204, 214, 0.24);
+  cursor: pointer;
+}
+
+.selected {
+  background: #94ccd6;
+}
+
+.board {
+  width: 578px;
+  margin: auto;
+}
+
+.winner {
+  background: floralwhite;
+}

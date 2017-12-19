@@ -1,0 +1,21 @@
+.game-wrapper {
+  display: flex;
+  width: 1000px;
+  margin: auto;
+}
+
+.add-button {
+  padding: 15px;
+  margin: 30px auto auto;
+  text-align: center;
+  display: block;
+  width: 180px;
+  border: 1px solid #94ccd6;
+  background: #a2bdff;
+  color: #fff;
+  text-decoration: none;
+}
+
+.add-button:hover {
+  background: #79b6ff;
+}
