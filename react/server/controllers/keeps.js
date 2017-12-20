@@ -2,12 +2,13 @@ const mongoose = require('mongoose');
 const Keep = mongoose.model('Keep');
 mongoose.Promise = global.Promise;
 
-exports.getAllKeeps = (req, res) => {
+const getAllKeeps = (req, res) => {
   Keep.find()
     .then((keeps) => {
       res.json(keeps);
     });
 };
+exports.getAllKeeps = getAllKeeps;
 
 exports.getKeepById = (req, res) => {
   const { id } = req.params;
@@ -26,5 +27,14 @@ exports.createKeep = (req, res) => {
     })
     .catch(() => {
       res.error('Some error');
+    });
+};
+
+exports.deleteKeep = (req, res) => {
+  const { id } = req.params;
+
+  return Keep.findByIdAndRemove(id)
+    .then(() => {
+      getAllKeeps(req, res);
     });
 };

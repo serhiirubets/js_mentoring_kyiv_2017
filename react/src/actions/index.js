@@ -82,3 +82,17 @@ export const getKeepById = id => (dispatch) => {
     .catch(error => dispatch(receiveKeepById(error)));
 };
 
+export const deleteKeep = id => (dispatch) => {
+  const registerUrl = `${host}/api/keeps/${id}`;
+  const options = {
+    method: 'delete',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return fetch(registerUrl, options)
+    .then(response => response.json())
+    .then(response => dispatch(reciveSuccessful(response)))
+    .catch(error => dispatch(reciveSuccessful(error)));
+};

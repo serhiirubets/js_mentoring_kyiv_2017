@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { removeKeep, receiveAllKeeps } from '../../actions';
+import { deleteKeep, receiveAllKeeps } from '../../actions';
 
 import Keep from '../keep';
 import './styles.css';
@@ -16,7 +16,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     remove(payload) {
-      dispatch(removeKeep(payload));
+      dispatch(deleteKeep(payload));
     },
     recieveAllKeeps() {
       dispatch(receiveAllKeeps());
