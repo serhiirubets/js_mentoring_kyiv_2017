@@ -22,7 +22,7 @@ exports.createKeep = (req, res) => {
   const keep = new Keep(req.body);
   keep.save()
     .then((keep) => {
-      res.json({title: keep.title, id: keep._id});
+      res.json({title: keep.title, _id: keep._id});
     })
     .catch(() => {
       res.error('Some error');

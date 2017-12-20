@@ -8,7 +8,7 @@ export default (state = defaultState, action) => {
   }
 
   if (action.type === ADD_KEEP) {
-    return [...state, { title: action.payload.title, id: action.payload.id }];
+    return [...state, { title: action.payload.title, _id: action.payload._id }];
   }
 
   if (action.type === REMOVE_KEEP) {

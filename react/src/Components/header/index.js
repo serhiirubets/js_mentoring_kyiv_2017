@@ -1,9 +1,9 @@
 import React from 'react';
 import Field from '../field';
-import { SearchIcon } from '../icons';
+import SearchIcon from '../icons';
 import './styles.css';
 
-const Header = props => (
+const Header = () => (
   <header>
     <h1>Google Keep</h1>
     <div className="field-wrapper">

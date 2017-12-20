@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const onClick = ({ remove, id }) => {
+const onClick = (remove, id) => {
   remove(id);
 };
 
@@ -9,7 +9,7 @@ const Keep = props => (
   <article className="list-group-item">
     <p>
       <a href={`/keeps/${props.id}`}>{props.title}</a>
-      <button onClick={() => onClick(props)}>Remove</button>
+      <button onClick={() => onClick(props.remove, props.id)}>Remove</button>
     </p>
   </article>
 );

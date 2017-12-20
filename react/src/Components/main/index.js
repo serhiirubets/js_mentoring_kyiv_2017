@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import Field from '../field';
 import Button from '../button';
 import KeepList from '../keep-list';
 
-import { saveKeep, addKeep } from '../../actions';
+import { saveKeep } from '../../actions';
 
 import './styles.css';
 
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {
-    keeps: state.keeps
+    // keeps: state.keeps
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     add(payload) {
-      dispatch(saveKeep({title: payload}));
+      dispatch(saveKeep({ title: payload }));
     },
   };
 }
@@ -26,18 +27,22 @@ function mapDispatchToProps(dispatch) {
 
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Main extends Component {
+  static propTypes = {
+    add: PropTypes.func.isRequired,
+  };
+
   state = {
-    text: ''
+    text: '',
   };
 
   onChange = (text) => {
-    this.setState({text})
+    this.setState({ text });
   };
 
   onSubmit = (e) => {
     e.preventDefault();
     this.props.add(this.state.text);
-    this.setState({text: ''});
+    this.setState({ text: '' });
   };
 
   render() {

@@ -9,26 +9,30 @@ export const RECEIVE_ALL_KEEPS = 'RECEIVE_ALL_KEEPS';
 
 export const RECEIVE_KEEP_BY_ID = 'RECEIVE_KEEP_BY_ID';
 
-const receiveKeepById = (payload) => {
-  return {
-    type: RECEIVE_KEEP_BY_ID,
-    payload
-  }
-};
+const receiveKeepById = payload => ({
+  type: RECEIVE_KEEP_BY_ID,
+  payload,
+});
 
-export const addKeep = (payload) => {
-  return {
-    type: ADD_KEEP,
-    payload,
-  };
-};
+const addKeep = payload => ({
+  type: ADD_KEEP,
+  payload,
+});
 
-const reciveSuccessful = (payload) => {
-  return {
-    type: RECEIVE_ALL_KEEPS,
-    payload
-  }
-};
+const reciveSuccessful = payload => ({
+  type: RECEIVE_ALL_KEEPS,
+  payload,
+});
+
+const recieveKeepSuccess = keep => ({
+  type: SUCCESS_RECEIVE_KEEP,
+  payload: keep,
+});
+
+export const removeKeep = payload => ({
+  type: REMOVE_KEEP,
+  payload,
+});
 
 export const receiveAllKeeps = () => (dispatch) => {
   const registerUrl = `${host}/api/keeps/`;
@@ -45,36 +49,22 @@ export const receiveAllKeeps = () => (dispatch) => {
     .catch(error => dispatch(recieveKeepSuccess(error)));
 };
 
-export const saveKeep = keep => (dispatch) => {
+export const saveKeep = keepData => (dispatch) => {
   const registerUrl = `${host}/api/keeps/add`;
   const options = {
     method: 'post',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(keep),
+    body: JSON.stringify(keepData),
   };
 
   return fetch(registerUrl, options)
     .then(response => response.json())
     .then((keep) => {
-      dispatch(addKeep(keep))
+      dispatch(addKeep(keep));
     })
     .catch(error => dispatch(recieveKeepSuccess(error)));
-};
-
-export const removeKeep = (payload) => {
-  return {
-    type: REMOVE_KEEP,
-    payload,
-  };
-};
-
-const recieveKeepSuccess = (keep) => {
-  return {
-    type: SUCCESS_RECEIVE_KEEP,
-    payload: keep,
-  };
 };
 
 export const getKeepById = id => (dispatch) => {

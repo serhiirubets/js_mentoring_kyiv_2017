@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SearchIcon = props => (
-  <i className="icon fa fa-search" aria-hidden="true"></i>
+const SearchIcon = () => (
+  <i className="icon fa fa-search" aria-hidden="true" />
 );
 
-export { SearchIcon };
+export default SearchIcon;

@@ -4,5 +4,5 @@ import keep from './keep';
 
 export default combineReducers({
   keeps,
-  keep
+  keep,
 });
