@@ -15,7 +15,7 @@ exports.getKeepById = (req, res) => {
 
   Keep.findById(id)
     .then(response => {
-      res.json({id: response._id, title: response.title})
+      res.json({id: response._id, title: response.title, text: response.text, tags: response.tags})
     });
 };
 
@@ -34,6 +34,14 @@ exports.deleteKeep = (req, res) => {
   const { id } = req.params;
 
   return Keep.findByIdAndRemove(id)
+    .then(() => {
+      getAllKeeps(req, res);
+    });
+};
+
+exports.updateKeep = (req, res) => {
+  console.log(req.body);
+  Keep.findOneAndUpdate({_id: req.params.id}, req.body)
     .then(() => {
       getAllKeeps(req, res);
     });

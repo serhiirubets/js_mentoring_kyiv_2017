@@ -35,7 +35,7 @@ export const removeKeep = payload => ({
 });
 
 export const receiveAllKeeps = () => (dispatch) => {
-  const registerUrl = `${host}/api/keeps/`;
+  const url = `${host}/api/keeps/`;
   const options = {
     method: 'get',
     headers: {
@@ -43,14 +43,14 @@ export const receiveAllKeeps = () => (dispatch) => {
     },
   };
 
-  return fetch(registerUrl, options)
+  return fetch(url, options)
     .then(response => response.json())
     .then(response => dispatch(reciveSuccessful(response)))
     .catch(error => dispatch(recieveKeepSuccess(error)));
 };
 
 export const saveKeep = keepData => (dispatch) => {
-  const registerUrl = `${host}/api/keeps/add`;
+  const url = `${host}/api/keeps/add`;
   const options = {
     method: 'post',
     headers: {
@@ -59,7 +59,7 @@ export const saveKeep = keepData => (dispatch) => {
     body: JSON.stringify(keepData),
   };
 
-  return fetch(registerUrl, options)
+  return fetch(url, options)
     .then(response => response.json())
     .then((keep) => {
       dispatch(addKeep(keep));
@@ -68,7 +68,7 @@ export const saveKeep = keepData => (dispatch) => {
 };
 
 export const getKeepById = id => (dispatch) => {
-  const registerUrl = `${host}/api/keeps/${id}`;
+  const url = `${host}/api/keeps/${id}`;
   const options = {
     method: 'get',
     headers: {
@@ -76,14 +76,14 @@ export const getKeepById = id => (dispatch) => {
     },
   };
 
-  return fetch(registerUrl, options)
+  return fetch(url, options)
     .then(response => response.json())
     .then(response => dispatch(receiveKeepById(response)))
     .catch(error => dispatch(receiveKeepById(error)));
 };
 
 export const deleteKeep = id => (dispatch) => {
-  const registerUrl = `${host}/api/keeps/${id}`;
+  const url = `${host}/api/keeps/${id}`;
   const options = {
     method: 'delete',
     headers: {
@@ -91,8 +91,25 @@ export const deleteKeep = id => (dispatch) => {
     },
   };
 
-  return fetch(registerUrl, options)
+  return fetch(url, options)
     .then(response => response.json())
     .then(response => dispatch(reciveSuccessful(response)))
     .catch(error => dispatch(reciveSuccessful(error)));
 };
+
+export const editKeep = (id, payload) => (dispatch) => {
+  const url = `${host}/api/keeps/${id}`;
+  const options = {
+    method: 'put',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  };
+
+  return fetch(url, options)
+    .then(response => response.json())
+    .then(response => dispatch(reciveSuccessful(response)))
+    .catch(error => dispatch(reciveSuccessful(error)));
+};
+
