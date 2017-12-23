@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { deleteKeep, receiveAllKeeps } from '../../actions';
+import { deleteKeep, receiveAllKeeps, addToFavorites } from '../../actions';
 
 import Keep from '../keep';
 import './styles.css';
@@ -21,6 +21,9 @@ function mapDispatchToProps(dispatch) {
     recieveAllKeeps() {
       dispatch(receiveAllKeeps());
     },
+    addToFavorites(payload) {
+      dispatch(addToFavorites(payload));
+    }
   };
 }
 
@@ -50,7 +53,9 @@ export default class KeepList extends Component {
               title={item.title}
               text={item.text}
               remove={this.props.remove}
+              addToFavorites={this.props.addToFavorites}
               id={item._id}
+              favorite={item.favorite}
             />
           ))
         }

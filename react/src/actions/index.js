@@ -29,10 +29,20 @@ const recieveKeepSuccess = keep => ({
   payload: keep,
 });
 
-export const removeKeep = payload => ({
-  type: REMOVE_KEEP,
-  payload,
-});
+export const addToFavorites = (id) => (dispatch) => {
+  const url = `${host}/api/keeps/${id}/favorite`;
+  const options = {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return fetch(url, options)
+    .then(response => response.json())
+    .then(response => dispatch(receiveAllKeeps(response)))
+    .catch(error => dispatch(receiveAllKeeps(error)));
+};
 
 export const receiveAllKeeps = () => (dispatch) => {
   const url = `${host}/api/keeps/`;
@@ -46,7 +56,7 @@ export const receiveAllKeeps = () => (dispatch) => {
   return fetch(url, options)
     .then(response => response.json())
     .then(response => dispatch(reciveSuccessful(response)))
-    .catch(error => dispatch(recieveKeepSuccess(error)));
+    .catch(error => dispatch(reciveSuccessful(error)));
 };
 
 export const saveKeep = keepData => (dispatch) => {
@@ -111,5 +121,26 @@ export const editKeep = (id, payload) => (dispatch) => {
     .then(response => response.json())
     .then(response => dispatch(reciveSuccessful(response)))
     .catch(error => dispatch(reciveSuccessful(error)));
+};
+
+
+export const getKeepsByQuery = query => (dispatch) => {
+  if (!query) {
+    dispatch(receiveAllKeeps());
+    return;
+  }
+
+  const url = `${host}/api/keeps/search/${query}`;
+  const options = {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return fetch(url, options)
+    .then(response => response.json())
+    .then(response => dispatch(reciveSuccessful(response)))
+    .catch(error => dispatch(receiveKeepById(error)));
 };
 

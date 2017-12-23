@@ -63,6 +63,9 @@ export default class KeepDetails extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     const {text, title, tags} = this.state;
+    tags.trim && tags.trim().split(' ');
+    text.trim();
+    title.trim();
 
     this.props.editKeep(id, {
       tags,
@@ -83,6 +86,8 @@ export default class KeepDetails extends Component {
 
   render() {
     const { title = '', text = '', tags = [], message = '' } = this.state;
+    tags.join && tags.join(' ');
+
     return (
       <form className="form" onSubmit={this.onSubmit}>
         <h2>{this.state.message}</h2>
@@ -107,7 +112,7 @@ export default class KeepDetails extends Component {
             id="text-field"
             placeholder="Enter text"
             value={text}
-            onChange={(e) => this.onChange('text', e.target.value.trim)}
+            onChange={(e) => this.onChange('text', e.target.value)}
           />
         </div>
 
@@ -119,7 +124,7 @@ export default class KeepDetails extends Component {
             id="tag-field"
             placeholder="Enter tags"
             value={tags}
-            onChange={(e) => this.onChange('tags', e.target.value.trim().split(' '))}
+            onChange={(e) => this.onChange('tags', e.target.value)}
           />
           <small className="form-text text-muted">Введите теги через пробел</small>
         </div>

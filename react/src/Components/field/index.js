@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-const Field = props => (
+const Field = ({ onChange, text }) => (
   <input
     type="text"
-    placeholder={props.text}
-    onInput={e => props.onChange(e.target.value)}
+    placeholder={text}
+    onInput={e => onChange(e.target.value)}
   />
 );
 

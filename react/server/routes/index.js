@@ -6,6 +6,8 @@ const keepsController = require('../controllers/keeps');
 
 router.get('/api/keeps/', keepsController.getAllKeeps);
 router.get('/api/keeps/:id', keepsController.getKeepById);
+router.get('/api/keeps/:id/favorite', keepsController.addKeepFavorite);
+router.get('/api/keeps/search/:query', keepsController.getKeepByQuery);
 router.delete('/api/keeps/:id', keepsController.deleteKeep);
 router.put('/api/keeps/:id', keepsController.updateKeep);
 router.post('/api/keeps/add', keepsController.createKeep);

@@ -11,9 +11,11 @@ const keepSchema = new Schema({
   },
   text: {
     type: String,
-    trim: true
+    trim: true,
   },
   tags: [String],
+  favorite: Boolean
 });
+
 
 module.exports = mongoose.model('Keep', keepSchema);
