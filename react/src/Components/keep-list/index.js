@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { deleteKeep, receiveAllKeeps, addToFavorites } from '../../actions';
+import { deleteKeep, receiveAllKeeps, addToFavorites, addToArchive, receiveArchivedKeeps } from '../../actions';
 
 import Keep from '../keep';
 import './styles.css';
@@ -23,6 +23,12 @@ function mapDispatchToProps(dispatch) {
     },
     addToFavorites(payload) {
       dispatch(addToFavorites(payload));
+    },
+    addToArchive(payload) {
+      dispatch(addToArchive(payload));
+    },
+    receiveArchivedKeeps() {
+      dispatch(receiveArchivedKeeps());
     }
   };
 }
@@ -40,6 +46,11 @@ export default class KeepList extends Component {
   };
 
   componentDidMount() {
+    if (this.props.match && this.props.match.url === '/keeps/archive') {
+      this.hideElementForArchivePage = true;
+      this.props.receiveArchivedKeeps();
+      return;
+    }
     this.props.recieveAllKeeps();
   }
 
@@ -64,9 +75,12 @@ export default class KeepList extends Component {
               text={item.text}
               remove={this.props.remove}
               addToFavorites={this.props.addToFavorites}
+              addToArchive={this.props.addToArchive}
               id={item._id}
               favorite={item.favorite}
               color={item.color}
+              archived={item.archived}
+              isElementsHidden={this.hideElementForArchivePage}
             />
           ))
         }

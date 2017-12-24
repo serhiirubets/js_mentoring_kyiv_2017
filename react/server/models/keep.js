@@ -18,7 +18,8 @@ const keepSchema = new Schema({
     trim: true
   },
   favorite: Boolean,
-  color: String
+  color: String,
+  archived: Boolean
 });
 
 keepSchema.index({title: 'text', text: 'text'});

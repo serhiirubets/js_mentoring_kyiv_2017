@@ -3,6 +3,10 @@
 }
 
 .list-group-item p {
+  text-align: center;
+}
+
+.buttons {
   display: flex;
   justify-content: space-between;
 }

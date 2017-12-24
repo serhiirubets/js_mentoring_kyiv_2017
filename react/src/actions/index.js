@@ -44,8 +44,38 @@ export const addToFavorites = (id) => (dispatch) => {
     .catch(error => dispatch(receiveAllKeeps(error)));
 };
 
+export const addToArchive = (id) => (dispatch) => {
+  const url = `${host}/api/keeps/${id}/archive`;
+  const options = {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return fetch(url, options)
+    .then(response => response.json())
+    .then(response => dispatch(receiveAllKeeps(response)))
+    .catch(error => dispatch(receiveAllKeeps(error)));
+};
+
 export const receiveAllKeeps = () => (dispatch) => {
   const url = `${host}/api/keeps/`;
+  const options = {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return fetch(url, options)
+    .then(response => response.json())
+    .then(response => dispatch(reciveSuccessful(response)))
+    .catch(error => dispatch(reciveSuccessful(error)));
+};
+
+export const receiveArchivedKeeps = () => (dispatch) => {
+  const url = `${host}/api/keeps/archive`;
   const options = {
     method: 'get',
     headers: {

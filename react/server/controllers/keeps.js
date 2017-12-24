@@ -29,6 +29,25 @@ exports.addKeepFavorite = (req, res) => {
     });
 };
 
+exports.addKeepToArchive = (req, res) => {
+  const { id } = req.params;
+
+  Keep.findById(id)
+    .then((keep) => {
+      console.log(keep);
+      keep.archived = !keep.archived;
+      keep.save(() => getAllKeeps(req, res));
+    });
+};
+
+exports.getArchivesKeep = (req, res) => {
+  Keep.find()
+    .then((keeps) => {
+      const archivedKeeps = keeps.filter(keep => keep.archived);
+      res.json(archivedKeeps);
+    });
+};
+
 exports.getKeepByQuery = (req, res) => {
   const {query} = req.params;
 
