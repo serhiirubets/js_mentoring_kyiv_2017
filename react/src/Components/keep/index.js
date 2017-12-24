@@ -11,7 +11,7 @@ const onAddToFavorite = (addToFavorites, id) => {
 };
 
 const Keep = props => (
-  <article className="list-group-item">
+  <article className={`list-group-item ${props.color}`}>
     <p>
       <a href={`/keeps/${props.id}`}>{props.title}</a>
       <button onClick={() => onAddToFavorite(props.addToFavorites, props.id)}>

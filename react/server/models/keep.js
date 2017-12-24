@@ -13,9 +13,14 @@ const keepSchema = new Schema({
     type: String,
     trim: true,
   },
-  tags: [String],
-  favorite: Boolean
+  tags: {
+    type: String,
+    trim: true
+  },
+  favorite: Boolean,
+  color: String
 });
 
+keepSchema.index({title: 'text', text: 'text'});
 
 module.exports = mongoose.model('Keep', keepSchema);

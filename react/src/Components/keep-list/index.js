@@ -43,9 +43,19 @@ export default class KeepList extends Component {
     this.props.recieveAllKeeps();
   }
 
+  showTagList = () => {
+    return this.props.keeps.filter(keep => !!keep.tags);
+  };
+
   render() {
     return (
       <section className="list-group">
+        <h2>Tags: </h2>
+        <ul className="tags">
+          { this.showTagList()
+            .map(keepWithtags => <li key={keepWithtags._id}>{keepWithtags.title}</li>)
+          }
+        </ul>
         {
           this.props.keeps.map(item => (
             <Keep
@@ -56,6 +66,7 @@ export default class KeepList extends Component {
               addToFavorites={this.props.addToFavorites}
               id={item._id}
               favorite={item.favorite}
+              color={item.color}
             />
           ))
         }

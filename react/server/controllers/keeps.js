@@ -15,7 +15,7 @@ exports.getKeepById = (req, res) => {
 
   Keep.findById(id)
     .then(response => {
-      res.json({id: response._id, title: response.title, text: response.text, tags: response.tags})
+      res.json({id: response._id, title: response.title, text: response.text, tags: response.tags, color: response.color})
     });
 };
 
@@ -33,8 +33,9 @@ exports.getKeepByQuery = (req, res) => {
   const {query} = req.params;
 
   Keep
-    .find({ $text: { $search: query } })
+    .find({ $text: { $search: query } }, {score: {$meta: "textScore"}})
     .then((data) => {
+    console.log(data)
       res.json(data)
     })
     .catch((err) => {
@@ -63,7 +64,6 @@ exports.deleteKeep = (req, res) => {
 };
 
 exports.updateKeep = (req, res) => {
-  console.log(req.body);
   Keep.findOneAndUpdate({_id: req.params.id}, req.body)
     .then(() => {
       getAllKeeps(req, res);

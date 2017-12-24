@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getKeepById, editKeep } from '../../actions';
+import Colors from '../colors';
 
 import './styles.css';
 
@@ -29,7 +30,8 @@ export default class KeepDetails extends Component {
   state = {
     text: '',
     title: '',
-    tags: ''
+    tags: '',
+    color: ''
   };
 
   static propTypes = {
@@ -52,25 +54,24 @@ export default class KeepDetails extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { title = '', text = '', tags = '' } = nextProps.keep ? nextProps.keep : null;
+    const { title = '', text = '', tags = '', color = '' } = nextProps.keep ? nextProps.keep : null;
     this.setState({
       text,
       title,
-      tags
+      tags,
+      color
     });
   }
 
   onSubmit = (e) => {
     e.preventDefault();
-    const {text, title, tags} = this.state;
-    tags.trim && tags.trim().split(' ');
-    text.trim();
-    title.trim();
+    const {text, title, tags, color} = this.state;
 
     this.props.editKeep(id, {
       tags,
       text,
       title,
+      color
     });
 
     this.setState({
@@ -84,9 +85,14 @@ export default class KeepDetails extends Component {
     })
   };
 
+  onColorChange = (color) => {
+    this.setState({
+      color
+    });
+  };
+
   render() {
-    const { title = '', text = '', tags = [], message = '' } = this.state;
-    tags.join && tags.join(' ');
+    const { title = '', text = '', tags = '', message = '' } = this.state;
 
     return (
       <form className="form" onSubmit={this.onSubmit}>
@@ -99,7 +105,7 @@ export default class KeepDetails extends Component {
             className="form-control"
             placeholder="Enter title"
             value={title}
-            onChange={(e) => this.onChange('title', e.target.value.trim())}
+            onChange={(e) => this.onChange('title', e.target.value)}
           />
           <small className="form-text text-muted">This is awesome title</small>
         </div>
@@ -115,7 +121,6 @@ export default class KeepDetails extends Component {
             onChange={(e) => this.onChange('text', e.target.value)}
           />
         </div>
-
         <div className="form-group">
           <label htmlFor="tag-field">Tags</label>
           <input
@@ -129,6 +134,7 @@ export default class KeepDetails extends Component {
           <small className="form-text text-muted">Введите теги через пробел</small>
         </div>
 
+        <Colors onChange={this.onColorChange} checked={this.state.color} />
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     );

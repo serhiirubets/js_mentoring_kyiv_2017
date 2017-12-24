@@ -1,0 +1,58 @@
+.colors {
+  display: flex;
+  justify-content: center;
+  background: lightgreen;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.color-wrapper {
+  margin-left: 10px;
+}
+
+.color-wrapper:first-child {
+  margin-left: 0;
+}
+
+.label {
+  margin-bottom: 0;
+}
+
+.color {
+  display: none;
+}
+
+.label {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.label--red {
+  border: 1px solid red;
+}
+.label--yellow {
+  border: 1px solid yellow;
+}
+
+.label--green {
+  border: 1px solid green;
+}
+
+.label--blue {
+  border: 1px solid blue;
+}
+
+.color:checked + .label--red {
+  background: red;
+}
+.color:checked + .label--green {
+  background: green;
+}
+.color:checked + .label--blue {
+  background: blue;
+}
+.color:checked + .label--yellow{
+  background: yellow;
+}
