@@ -74,6 +74,22 @@ export const receiveAllKeeps = () => (dispatch) => {
     .catch(error => dispatch(reciveSuccessful(error)));
 };
 
+export const receiveKeepsByTags = (tags) => (dispatch) => {
+  const url = `${host}/api/keeps/`;
+  const options = {
+    method: 'get',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  return fetch(url, options)
+    .then(response => response.json())
+    .then(response => response.filter(keep => keep.tags === tags))
+    .then(response => dispatch(reciveSuccessful(response)))
+    .catch(error => dispatch(reciveSuccessful(error)));
+};
+
 export const receiveArchivedKeeps = () => (dispatch) => {
   const url = `${host}/api/keeps/archive`;
   const options = {

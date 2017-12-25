@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { deleteKeep, receiveAllKeeps, addToFavorites, addToArchive, receiveArchivedKeeps } from '../../actions';
+import { deleteKeep, receiveAllKeeps, addToFavorites, addToArchive, receiveArchivedKeeps, receiveKeepsByTags } from '../../actions';
 
 import Keep from '../keep';
 import './styles.css';
@@ -29,6 +29,9 @@ function mapDispatchToProps(dispatch) {
     },
     receiveArchivedKeeps() {
       dispatch(receiveArchivedKeeps());
+    },
+    receiveKeepsByTags(payload) {
+      dispatch(receiveKeepsByTags(payload))
     }
   };
 }
@@ -63,8 +66,14 @@ export default class KeepList extends Component {
       <section className="list-group">
         <h2>Tags: </h2>
         <ul className="tags">
+          <li onClick={this.props.recieveAllKeeps}>show all</li>
           { this.showTagList()
-            .map(keepWithtags => <li key={keepWithtags._id}>{keepWithtags.title}</li>)
+            .map(keepWithtags => (
+              <li
+                className="tags"
+                key={keepWithtags._id}
+                onClick={(e) => this.props.receiveKeepsByTags(e.target.textContent)}>{keepWithtags.tags}</li>)
+            )
           }
         </ul>
         {
