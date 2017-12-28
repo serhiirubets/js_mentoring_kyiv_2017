@@ -45,6 +45,7 @@ export class GameComponent implements OnInit {
   }
 
   start = () => {
+
     this.winnerScores = this.boardService.getWinnerScores();
     this.boardService.generateWinnerBoard();
     this.boardFields = this.boardService.getBoardFields();
