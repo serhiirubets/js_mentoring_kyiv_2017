@@ -1,0 +1,47 @@
+.list-group-item {
+  margin-bottom: 5px;
+}
+
+.list-group-item p {
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tags {
+  margin-left: 10px;
+}
+
+.tags:first-child {
+  margin-left: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.red {
+  border: 2px solid red;
+}
+
+.green {
+  border: 2px solid green;
+}
+
+.yellow {
+  border: 2px solid yellow;
+}
+
+.blue {
+  border: 2px solid blue;
+}
