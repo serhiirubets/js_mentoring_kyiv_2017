@@ -35,29 +35,38 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <View style={styles.container}>
-        <Button
-          onPress={this.onPress.bind(this)}
-          title="Learn More"
-          color="#841584"
-          accessibilityLabel="Learn more about this purple button"
-        />
-        <FlatList
-          styles={styles.list}
-          data={[{ key: 'a' }, { key: 'b' }]}
-          renderItem={({ item }) => <Text>{item.key}</Text>}
-        />
-        <Text>{this.state.text}</Text>
-        <TextInput
-          style={{
-            height: 40,
-            borderColor: 'black',
-            borderWidth: 1,
-            width: 100
-          }}
-          onChangeText={text => this.setState({ text })}
-          value={this.state.text}
-        />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'center'
+        }}
+      >
+        <View style={styles.container}>
+          <Button
+            styles={styles.height}
+            onPress={this.onPress.bind(this)}
+            title="Learn More"
+            color="#841584"
+            accessibilityLabel="Learn more about this purple button"
+          />
+          <FlatList
+            styles={styles.height}
+            styles={styles.list}
+            data={[{ key: 'a' }, { key: 'b' }]}
+            renderItem={({ item }) => <Text>{item.key}</Text>}
+          />
+          <Text>{this.state.text}</Text>
+          <TextInput
+            style={{
+              height: 40,
+              borderColor: 'black',
+              borderWidth: 1,
+              width: 100
+            }}
+            onChangeText={text => this.setState({ text })}
+            value={this.state.text}
+          />
+        </View>
       </View>
     );
   }
@@ -66,9 +75,12 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    alignContent: 'flex-start'
+    justifyContent: 'center'
+  },
+  height: {
+    height: 40,
+    borderColor: 'black',
+    borderWidth: 1
   }
 });
