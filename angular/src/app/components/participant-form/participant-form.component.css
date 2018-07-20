@@ -3,6 +3,19 @@
   margin: auto;
   text-align: center;
 }
+
+@media (max-width: 1200px) {
+  .participant-form {
+    width: 500px;
+  }
+}
+
+@media (max-width: 800px) {
+  .participant-form {
+    width: 100%;
+  }
+}
+
 .participant-form label,
 .participant-form input {
   display: block;
@@ -12,6 +25,13 @@
   width: 500px;
   margin: 15px auto;
   padding: 10px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .participant-form input {
+    width: 100%;
+  }
 }
 
 .error {

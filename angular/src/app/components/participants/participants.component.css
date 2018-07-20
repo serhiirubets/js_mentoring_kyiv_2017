@@ -4,6 +4,12 @@
   padding: 10px;
 }
 
+@media (max-width: 1100px) {
+  .participants {
+    margin: auto;
+  }
+}
+
 .participants li {
   border: 1px solid grey;
   margin-bottom: 5px;

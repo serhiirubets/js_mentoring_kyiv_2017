@@ -4,6 +4,7 @@ logs
 .idea
 coverage
 .nyc_output
+react-native-home/node_modules
 
 # Runtime data
 pids
